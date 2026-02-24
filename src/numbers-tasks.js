@@ -411,9 +411,11 @@ numberToStringInBase(2, 2);
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  return number.toExponential(fractionDigits);
 }
+
+toExponential(123, 3);
 
 /**
  * Returns a string representation of a number in fixed-point notation.
@@ -426,9 +428,11 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  return number.toFixed(fractionDigits);
 }
+
+toFixed(3123, 2);
 
 /**
  * Returns a string representation of a number in normal (fixed-point or exponential)
@@ -442,9 +446,11 @@ function toFixed(/* number, fractionDigits */) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  return number.toPrecision(precision);
 }
+
+toPrecision(213, 4);
 
 /**
  * Returns the primitive value of a Number object.
@@ -456,9 +462,11 @@ function toPrecision(/* number, precision */) {
  * new Number(5) => 5
  * Number(-5)    => -5
  */
-function getNumberValue(/* number */) {
-  throw new Error('Not implemented');
+function getNumberValue(number) {
+  return number.valueOf();
 }
+
+getNumberValue(414);
 
 /**
  * Returns a boolean value indicating whether the parameter is a number or not.
@@ -475,10 +483,12 @@ function getNumberValue(/* number */) {
  * 5        => true
  * '5'      => false
  */
-function isNumber(/* number */) {
-  throw new Error('Not implemented');
+function isNumber(number) {
+  if (!Number.isFinite(number)) return false;
+  return typeof number === 'number' && !Number.isNaN(number);
 }
 
+isNumber('ff');
 /**
  * Returns a boolean value indicating whether a number is an integer or not.
  *
